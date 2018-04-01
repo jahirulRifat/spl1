@@ -48,6 +48,45 @@ public class Game {
 		gameBoard[selectedX][selectedY]=number;
 		
 	}
+	public void pushDown() {
+		
+		for(int y=0;y<=3;y++) {
+			for(int x=2;x>=0;x--) {
+				//printArray();
+				
+				if(gameBoard[x][y] != 0) {
+					int value=gameBoard[x][y];
+					
+					int X = x+1;
+					while((X<=3) && (gameBoard[X][y]==0)) {
+						X++;
+					}
+					//System.out.println(X+"  "+y);
+					
+					if(X == 4) {
+						gameBoard[3][y]= value;
+						gameBoard[x][y]= 0;
+						//System.out.println("X= 4");
+					}
+					else if(gameBoard[X][y] != value) {
+						
+						if(x==X-1 ) {
+							gameBoard[x][y]= value;
+						}else {
+							gameBoard[X-1][y]= value;
+							gameBoard[x][y]= 0;
+						}
+						//System.out.println("X= X-1");
+					}
+					else if (gameBoard[X][y]== gameBoard[x][y]){
+						gameBoard[X][y]*=2;
+						gameBoard[x][y]=0;
+						//System.out.println("X= X");
+					}
+				}
+			}
+		}
+	}
 	
 	public void pushUp() {
 		
