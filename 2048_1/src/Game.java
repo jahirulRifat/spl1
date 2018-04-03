@@ -32,6 +32,7 @@ public class Game {
 			}
 		}
 		
+		
 
 		int	index = random.nextInt(emptySpacesX.size());
 		int selectedX=emptySpacesX.get(index);
