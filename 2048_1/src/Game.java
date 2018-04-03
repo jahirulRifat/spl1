@@ -123,5 +123,87 @@ public class Game {
 		}
 	}
 	
+	public void pushRight() {
+		
+		System.out.println("Pushing Right");
+		
+		for(int x=3;x>=0;x--) {
+			for(int y=2;y>=0;y--) {
+				//printArray();
+				
+				if(gameBoard[x][y] != 0) {
+					int value=gameBoard[x][y];
+					
+					int Y = y+1;
+					while((Y<=3) && (gameBoard[x][Y]==0)) {
+						Y++;
+					}
+					//System.out.println(X+"  "+y);
+					
+					if(Y == 4) {
+						gameBoard[x][3]= value;
+						gameBoard[x][y]= 0;
+						//System.out.println("X= 4");
+					}
+					else if(gameBoard[x][Y] != value) {
+						
+						if(y==Y-1 ) {
+							gameBoard[x][y]= value;
+						}else {
+							gameBoard[x][Y-1]= value;
+							gameBoard[x][y]= 0;
+						}
+						//System.out.println("X= X-1");
+					}
+					else if (gameBoard[x][Y]== gameBoard[x][y]){
+						gameBoard[x][Y]*=2;
+						gameBoard[x][y]=0;
+						//System.out.println("X= X");
+					}
+				}
+			}
+		}
+	}
+	public void pushLeft() {
+		
+		System.out.println("Pushing Left");
+		
+		for(int x=0;x<=3;x++) {
+			for(int y=1;y<=3;y++) {
+				//printArray();
+				
+				if(gameBoard[x][y] != 0) {
+					int value=gameBoard[x][y];
+					
+					int Y = y-1;
+					while((Y>=0) && (gameBoard[x][Y]==0)) {
+						Y--;
+					}
+					//System.out.println(X+"  "+y);
+					
+					if(Y == -1) {
+						gameBoard[x][0]= value;
+						gameBoard[x][y]= 0;
+						//System.out.println("X= 4");
+					}
+					else if(gameBoard[x][Y] != value) {
+						
+						if(y==Y+1 ) {
+							gameBoard[x][y]= value;
+						}else {
+							gameBoard[x][Y+1]= value;
+							gameBoard[x][y]= 0;
+						}
+						//System.out.println("X= X-1");
+					}
+					else if (gameBoard[x][Y]== gameBoard[x][y]){
+						gameBoard[x][Y]*=2;
+						gameBoard[x][y]=0;
+						//System.out.println("X= X");
+					}
+				}
+			}
+		}
+	}
 	
 }
