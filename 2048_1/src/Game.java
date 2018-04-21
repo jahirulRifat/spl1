@@ -2,7 +2,8 @@ import java.util.ArrayList;
 import java.util.Random;
 
 
-public class Game {
+public class Game 
+{
 
 	private  int[][] gameBoard;
 	Random random=new Random();
